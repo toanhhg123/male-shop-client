@@ -1,58 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NotFound from './screens/NotFound';
+import Auth from './screens/Auth';
+import { privateRoutes, puclicRoutes } from './Routes/routes';
+import { PrivateRoute } from './Components/PrivateRoutes/PrivateComponent';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                {puclicRoutes.map((route, i) => {
+                    return (
+                        <Route
+                            key={i}
+                            path={route.path}
+                            element={<route.Element />}
+                        />
+                    );
+                })}
+                <Route path="/" element={<PrivateRoute />}>
+                    {privateRoutes.map((route, i) => {
+                        return (
+                            <Route
+                                key={i}
+                                path={route.path}
+                                element={<route.Element />}
+                            />
+                        );
+                    })}
+                </Route>
+                <Route path="/login" element={<Auth />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
