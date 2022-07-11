@@ -5,7 +5,7 @@ import { AuthState } from 'src/features/AuthFile/Auth';
 import axios, { AxiosError } from 'axios';
 
 export const orderApi = axios.create({
-    baseURL: 'https://rolle-maleshop.herokuapp.com/order',
+    baseURL: 'https://male-shop-server.herokuapp.com/order',
     headers: {
         'Content-Type': 'application/json',
     },

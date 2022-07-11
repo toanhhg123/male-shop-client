@@ -7,7 +7,7 @@ import axios from 'axios';
 import { AuthState } from 'src/features/AuthFile/Auth';
 
 export const axiosAuth = axios.create({
-    baseURL: 'https://rolle-maleshop.herokuapp.com/user',
+    baseURL: 'https://male-shop-server.herokuapp.com/user',
     headers: {
         'Content-Type': 'application/json',
     },

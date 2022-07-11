@@ -4,7 +4,7 @@ import { ListReponse, ListParams } from './../Models/Commom';
 import axios from 'axios';
 
 const productApi = axios.create({
-    baseURL: 'https://rolle-maleshop.herokuapp.com/products',
+    baseURL: 'https://male-shop-server.herokuapp.com/products',
     headers: {
         'Content-Type': 'application/json',
     },
