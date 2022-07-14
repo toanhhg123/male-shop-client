@@ -1,10 +1,11 @@
+import { BASE_URL } from './URL';
 import { Product } from 'src/Models/Product';
 import { ListReponse, ListParams } from './../Models/Commom';
 
 import axios from 'axios';
 
 const productApi = axios.create({
-    baseURL: 'https://male-shop-server.herokuapp.com/products',
+    baseURL: BASE_URL + '/products',
     headers: {
         'Content-Type': 'application/json',
     },

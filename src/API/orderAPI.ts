@@ -1,3 +1,4 @@
+import { BASE_URL } from './URL';
 import { OrderItem } from './../features/ProductOrderSlice';
 import { ProductOrder } from './../Models/ProductOrder';
 import { axiosAuth } from './AuthAPI';
@@ -5,7 +6,7 @@ import { AuthState } from 'src/features/AuthFile/Auth';
 import axios, { AxiosError } from 'axios';
 
 export const orderApi = axios.create({
-    baseURL: 'https://male-shop-server.herokuapp.com/order',
+    baseURL: BASE_URL + '/order',
     headers: {
         'Content-Type': 'application/json',
     },

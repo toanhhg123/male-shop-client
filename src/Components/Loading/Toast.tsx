@@ -1,5 +1,3 @@
-import React, { useEffect, useRef } from 'react';
-import { Id, toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {

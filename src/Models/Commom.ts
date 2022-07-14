@@ -8,6 +8,10 @@ export interface ListReponse<T> {
     pagination: PaginationParams;
 }
 
+export interface Response<T> {
+    data: T;
+}
+
 export interface ListParams {
     page?: number;
     limit?: number;

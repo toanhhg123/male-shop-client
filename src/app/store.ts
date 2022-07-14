@@ -1,18 +1,13 @@
 import { productOrderReducer } from './../features/ProductOrderSlice';
 import { ProductItemReducer } from './../features/ProductItemSlice';
 import { ProductReducer } from './../features/ProductSlice';
-import {
-    configureStore,
-    ThunkAction,
-    Action,
-    getDefaultMiddleware,
-} from '@reduxjs/toolkit';
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { AuthReducer } from '../features/AuthFile/Auth';
 import createSagaMiddleware from 'redux-saga';
 import mySaga from 'src/Saga/saga';
+import { chatReducer } from 'src/features/chatSlice';
+import { messageReducer } from 'src/features/MessageSlice';
 const sagaMiddleware = createSagaMiddleware();
-
-const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
 
 export const store = configureStore({
     reducer: {
@@ -20,8 +15,14 @@ export const store = configureStore({
         ProductReducer,
         ProductItemReducer,
         productOrderReducer,
+        chatReducer,
+        messageReducer,
     },
-    middleware,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+            thunk: false,
+        }).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(mySaga);
