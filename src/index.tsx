@@ -8,8 +8,6 @@ import './base.css';
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-console.log(process.env.REACT_APP_BASE_URL);
-
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 

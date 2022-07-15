@@ -1,3 +1,4 @@
+import Chat from 'src/Components/ChatComponent/Chat';
 import CartScreen from 'src/screens/CartScreen';
 import Home from 'src/screens/Home';
 import ProductItemScreen from 'src/screens/ProductItemScreen';
@@ -32,5 +33,9 @@ export const privateRoutes = [
     {
         path: '/profile',
         Element: ProfileScreen,
+    },
+    {
+        path: '/chat',
+        Element: Chat,
     },
 ];

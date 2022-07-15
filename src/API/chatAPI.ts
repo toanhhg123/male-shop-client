@@ -29,3 +29,15 @@ export const creatChat = async (
         return Promise.reject({ message: message ? message : error.message });
     }
 };
+
+export const findFriendsChat = async (userId: string): Promise<Chat[]> => {
+    try {
+        const res: AxiosResponse<Chat[]> = await chatApi.post('/find-friend', {
+            userId,
+        });
+        return res.data;
+    } catch (error: any) {
+        const message = error?.response?.data?.message;
+        return Promise.reject({ message: message ? message : error.message });
+    }
+};

@@ -39,7 +39,6 @@ const productOrderSlice = createSlice({
             state,
             action: PayloadAction<ProductOrder[]>
         ) => {
-            console.log(action.payload);
             state.productOrders = action.payload;
         },
 

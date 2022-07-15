@@ -4,9 +4,10 @@ import {
     UserRegister,
     UserUpdate,
 } from './../features/AuthFile/Auth';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { AuthState } from 'src/features/AuthFile/Auth';
 import { configErrorRespone } from './configToken';
+import { User } from 'src/Models/User';
 
 export const axiosAuth = axios.create({
     baseURL: BASE_URL + '/user',
@@ -63,6 +64,16 @@ export const updateAuth = async (dataUpdate: UserUpdate): Promise<string> => {
     try {
         const { data } = await axiosAuth.post('/update', dataUpdate);
         return data.message;
+    } catch (error: any) {
+        const message = error?.response?.data?.message;
+        return Promise.reject({ message: message ? message : error.message });
+    }
+};
+
+export const getUserById = async (id: string): Promise<User> => {
+    try {
+        const res: AxiosResponse<User> = await axiosAuth.get('/get-user/' + id);
+        return res.data;
     } catch (error: any) {
         const message = error?.response?.data?.message;
         return Promise.reject({ message: message ? message : error.message });

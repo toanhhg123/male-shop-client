@@ -61,7 +61,6 @@ const Login = (props: Props) => {
     };
     const handleRegister = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(userRegister);
 
         if (userRegister.password !== userRegister.confirmPassword)
             dispatch(authFailure('password different with confirm password'));

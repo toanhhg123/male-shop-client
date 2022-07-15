@@ -3,8 +3,8 @@ import { User } from 'src/Models/User';
 import { RootState } from 'src/app/store';
 
 export interface AuthState {
-    authReqeuest?: boolean | false;
-    isAuthenticated?: boolean | false;
+    authReqeuest?: boolean;
+    isAuthenticated?: boolean;
     token?: {
         accessToken: string;
         refreshToken: string;

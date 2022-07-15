@@ -34,7 +34,6 @@ function* handleOrderProduct(action: PayloadAction<OrderItem>) {
         );
         yield put(productsOrderSuccess(productsOrder));
     } catch (error: any) {
-        console.log(error);
         yield put(productOrderFail(error.message));
     }
 }
@@ -45,7 +44,6 @@ function* handleOrderProductDelete(action: PayloadAction<string>) {
             deleteProductOrder(action.payload)
         );
 
-        console.log(data);
         yield put(resetState());
         yield put(productsOrderSuccess(data));
     } catch (error: any) {

@@ -163,8 +163,7 @@ const Header = (props: Props) => {
                             <i className="bi bi-person-circle"></i>
                         </Link>
                     )}
-                    <Link to={`/cart`} className="hd__auth-icon hd__cart">
-                        <span>{productsOrder.length}</span>
+                    <Link to={`/chat`} className="hd__auth-icon">
                         <i className="bi bi-chat"></i>
                     </Link>
                     <Link to={`/cart`} className="hd__auth-icon hd__cart">

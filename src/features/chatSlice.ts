@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'src/app/store';
 export interface ChatState {
     isRequest: boolean;
-    data?: Chat;
+    data?: Chat[];
     error: string;
 }
 
@@ -17,10 +17,10 @@ const chatSlice = createSlice({
     name: 'chat',
     initialState: initState,
     reducers: {
-        chatRequest: (state) => {
+        chatRequest: (state, action: PayloadAction<string>) => {
             state.isRequest = true;
         },
-        chatSuccess: (state, action: PayloadAction<Chat>) => {
+        chatSuccess: (state, action: PayloadAction<Chat[]>) => {
             state.data = action.payload;
         },
         chatFailure: (state, action: PayloadAction<string>) => {

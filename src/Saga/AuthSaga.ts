@@ -47,7 +47,6 @@ function* HandleRegister(action: PayloadAction<UserRegister>) {
 function* handleUpdateProfile(action: PayloadAction<UserUpdate>) {
     try {
         const success: string = yield call(() => updateAuth(action.payload));
-        console.log({ success });
         if (success === 'success') {
             yield put(
                 authRequest({
